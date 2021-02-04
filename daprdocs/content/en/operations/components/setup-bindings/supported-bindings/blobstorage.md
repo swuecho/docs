@@ -40,62 +40,20 @@ The above example uses secrets as plain strings. It is recommended to use a secr
 
 To perform a create blob operation, invoke the Azure Blob Storage binding with a `POST` method and the following JSON body:
 
-> Note: by default, a random UUID is generated. See below for Metadata support to set the name
-
 ```json
 {
   "operation": "create",
-  "data": "YOUR_CONTENT"
+  "data": {
+    "field1": "value1"
+  }
 }
 ```
 
 #### Example:
 
-> We escape since ' is not supported on Windows
-> On Windows, utilize CMD (PowerShell has different escaping mechanism)
-
-**Saving to a random generated UUID file**
-
 ```bash
-curl -d "{ \"operation\": \"create\", \"data\": \"Hello World\" }" \
-      http://localhost:<dapr-port>/v1.0/bindings/<binding-name>
-```
 
-**Saving to a specific file**
-
-```bash
-curl -d "{ \"operation\": \"create\", \"data\": \"Hello World\", \"metadata\": { \"blobName\": \"my-test-file.txt\" } }" \
-      http://localhost:<dapr-port>/v1.0/bindings/<binding-name>
-```
-
-**Saving a file**
-
-To upload a file, encode it as Base64 and let the Binding know to deserialize it:
-
-```yaml
-apiVersion: dapr.io/v1alpha1
-kind: Component
-metadata:
-  name: <NAME>
-  namespace: <NAMESPACE>
-spec:
-  type: bindings.azure.blobstorage
-  version: v1
-  metadata:
-  - name: storageAccount
-    value: myStorageAccountName
-  - name: storageAccessKey
-    value: ***********
-  - name: container
-    value: container1
-  - name: decodeBase64
-    value: "true"
-```
-
-Then you can upload it as you would normally:
-
-```bash
-curl -d "{ \"operation\": \"create\", \"data\": \"YOUR_BASE_64_CONTENT\", \"metadata\": { \"blobName\": \"my-test-file.jpg\" } }" \
+curl -d '{ "operation": "create", "data": { "field1": "value1" }}' \
       http://localhost:<dapr-port>/v1.0/bindings/<binding-name>
 ```
 
