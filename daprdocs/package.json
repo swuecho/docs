@@ -1,6 +1,6 @@
 {
   "name": "dapr-docs-hugo",
-  "version": "0.0.1",
+  "version": "1.2",
   "description": "Docs site for the Dapr project",
   "main": "",
   "repository": {
@@ -11,8 +11,7 @@
   "bugs": {
     "url": "https://github.com/dapr/docs/issues"
   },
-  "homepage": "https://dapr.io",
-  "dependencies": {},
+  "homepage": "https://docs.dapr.io",
   "devDependencies": {
     "autoprefixer": "^9.8.6",
     "postcss-cli": "^7.1.2"
