@@ -1,7 +1,7 @@
 ---
 type: docs
 title: "How-To: Apply access control list configuration for service invocation"
-linkTitle: "Service Invocation access control"
+linkTitle: "Service invocation access control"
 weight: 4000
 description: "Restrict what operations *calling* applications can perform, via service invocation, on the *called* application"
 ---
