@@ -23,7 +23,7 @@ Using Dapr, there are no code changes needed to an app.
 
 ### Setting app-max-concurrency in Kubernetes
 
-To set app-max-concurrency in Kubernetes, add the following annotation to your pod:
+To set app-max-concurrency in Kubernetes, add the `dapr.io/app-max-concurrency` annotation to your pod:
 
 ```yaml
 apiVersion: apps/v1
@@ -46,7 +46,7 @@ spec:
         dapr.io/enabled: "true"
         dapr.io/app-id: "nodesubscriber"
         dapr.io/app-port: "3000"
-        <b>dapr.io/app-max-concurrency: "1"</b>
+        dapr.io/app-max-concurrency: "1"
 ...
 ```
 
